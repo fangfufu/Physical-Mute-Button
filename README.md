@@ -38,6 +38,10 @@ set up Arduino IDE. Note that you need both the ``M5Stack-Atom`` board manager a
 mute shortcut, because you cannot change Microsoft Teams's keyboard shortcuts, whereas you
 can change Zoom's. 
 
+If you want the mute button to work when Zoom window is not in focus, you need to set
+Zoom's keyboard shortcut as "global" in the shortcut settings. However please note that if
+you do so, it might interfere with Microsoft Team. 
+
 Before successful pairing, the mute button flashes blue. After successful pairing, the
 mute button goes dark. Afte pressing it, it turns red. 
 
