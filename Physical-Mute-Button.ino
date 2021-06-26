@@ -3,7 +3,7 @@
 #include "BleKeyboard.h"
 
 uint8_t DisBuff[2 + 5 * 5 * 3];
-BleKeyboard bleKeyboard("Mute Button", "Fufu Fang", 100);;
+BleKeyboard bleKeyboard("Mute Button", "M5Stack Atom Matrix", 100);;
 
 void setBuff(uint8_t Rdata, uint8_t Gdata, uint8_t Bdata)
 {
