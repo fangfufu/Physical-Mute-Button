@@ -1,4 +1,4 @@
-# Physical-Zoom-Mute-Button
+# Physical-Mute-Button
 
 ## License
 The soure code of this file are released under GPLv3.
