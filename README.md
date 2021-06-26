@@ -1,5 +1,5 @@
 # Physical-Mute-Button
-This is an Arduino sketch for a physical mute button suitable for Zoom and Microsoft Team. 
+This is an Arduino sketch for a physical mute button suitable for Zoom and Microsoft Teams. 
 
 ## Hardware requirement
 You need a M5Stack Atom Matrix. You can buy them from various places. I have listed a few
@@ -15,11 +15,11 @@ that you can press on the LED array, and trigger actions.
 ## How does it work
 This sketch configures M5Stack Atom Matrix into a Bluetooth Keyboard. After you pair it
 with your computer, pressing the Atom Matrix's button sends ``Ctrl + Shift + M`` to your
-computer, which is the keyboard shortcut for mute on Microsoft Team. You can configure
-your Zoom to share the same mute keyboard shortcut as Microsoft Team. (This is what I did)
+computer, which is the keyboard shortcut for mute on Microsoft Teams. You can configure
+your Zoom to share the same mute keyboard shortcut as Microsoft Teams. (This is what I did)
 
 **Please note that the LED status of the button is NOT automatically synchronised with
-the Zoom or Microsoft Team.** This means that if you change the mute settings without
+the Zoom or Microsoft Teams.** This means that if you change the mute settings without
 using the button, the LED of the button will not change automatically. 
 
 ## How to set it up
@@ -34,8 +34,8 @@ set up Arduino IDE. Note that you need both the ``M5Stack-Atom`` board manager a
 ### Software configuration
  1. On your operating system, search for Bluetooth Device, and pair with ``Mute Button``.
  2. To use this button with Zoom, change Zoom's shortcut for "Mute/unmute my audio" from
-``Alt + A`` to ``Ctrl + Shift + M``. I decided to set the key presses to Microsoft Team's
-mute shortcut, because you cannot change Microsoft Team's keyboard shortcuts, whereas you
+``Alt + A`` to ``Ctrl + Shift + M``. I decided to set the key presses to Microsoft Teams's
+mute shortcut, because you cannot change Microsoft Teams's keyboard shortcuts, whereas you
 can change Zoom's. 
 
 Before successful pairing, the mute button flashes blue. After successful pairing, the
@@ -43,13 +43,13 @@ mute button goes dark. Afte pressing it, it turns red.
 
 ## Why
 I was issued a Plantronics C3200 headset, which contains a mute button that synchronises
-with Microsoft Team and Zoom. However the LED is not big or bright enough. I saw various
+with Microsoft Teams and Zoom. However the LED is not big or bright enough. I saw various
 tutorials on the Internet on setting up Zoom mute buttons. I find those setups a bit
 clunky - some of them do not have LED indication, some of them require breadboard which
 is not very neat. 
 
 ## Possible improvements
-Both Zoom and Microsoft Team have APIs to query the state of the call. You can use those
+Both Zoom and Microsoft Teams have APIs to query the state of the call. You can use those
 APIs to mute the call directly. This would be better than issuing a keyboard shortcut.
 However these require more efforts than I am willing to give. 
 
