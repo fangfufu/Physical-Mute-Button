@@ -1,7 +1,15 @@
 # Physical-Mute-Button
+This is an Arduino sketch for a physical mute button suitable for Zoom and Microsoft Team. 
+
+## Hardware requirement
+
+ - https://shop.pimoroni.com/products/atom-matrix-esp32-development-kit
+ - https://thepihut.com/products/atom-matrix-esp32-development-kit
+ - https://www.adafruit.com/product/4497
+ - https://shop.m5stack.com/products/atom-matrix-esp32-development-kit?variant=39524837195948
 
 ## License
-The soure code of this file are released under GPLv3.
+This repository is licensed under GPLv3.
 
     Physical Mute Button
     Copyright (C) 2021  Fufu Fang
