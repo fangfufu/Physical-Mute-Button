@@ -17,6 +17,15 @@ void setBuff(uint8_t Rdata, uint8_t Gdata, uint8_t Bdata)
     }
 }
 
+void KbdLedCb(KbdLeds *kbls)
+{
+    if (kbls->bmScrollLock) {
+        setBuff(0xff, 0x00, 0x00);
+    } else {
+        setBuff(0x00, 0x00, 0x00);
+    }
+}
+
 void setup()
 {
     M5.begin(false, false, true);
@@ -25,29 +34,22 @@ void setup()
     M5.dis.displaybuff(DisBuff);
 
     bleKeyboard.begin();
+    /* must have delay for the BLE  finish initalisation */
+    delay(1000);
+    bleKeyboard.setLedChangeCallBack(KbdLedCb);
 }
 
-bool muted = false;
 int blue_level = 0;
 int increment = 0;
 void loop()
 {
   if(bleKeyboard.isConnected()) {
     if (M5.Btn.wasPressed()) {
-      muted = !muted;
-      bleKeyboard.press(KEY_LEFT_CTRL);
-      bleKeyboard.press(KEY_LEFT_SHIFT);
-      bleKeyboard.press('M');
-      delay(100);
+      bleKeyboard.press(KEY_SCROLL_LOCK);
+      delay(50);
       bleKeyboard.releaseAll();
     }
-    if (muted) {
-      setBuff(0xff, 0x00, 0x00);
-    } else {
-      setBuff(0x00, 0x00, 0x00);
-    }
   } else {
-    muted = false;
     if (blue_level < 10) {
       increment = 10;
     } else if (blue_level > 240) {
