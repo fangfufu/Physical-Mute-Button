@@ -3,19 +3,24 @@
 
 BleKeyboard bleKeyboard("Zoom Mute Button", "Fufu Fang", 100);;
 
+void set_off_state()
+{
+    M5.dis.setBrightness(100);
+    M5.dis.fillpix(CRGB::Black);
+    for (int i = 0; i < 5; i += 4) {
+        for (int j = 0; j < 5; j += 4) {
+            M5.dis.drawpix(i, j, CRGB::Green);
+        }
+    }
+}
+
 void KbdLedCb(KbdLeds *kbls)
 {
     if (kbls->bmScrollLock) {
         M5.dis.setBrightness(100);
         M5.dis.fillpix(CRGB::Green);
     } else {
-        M5.dis.setBrightness(100);
-        M5.dis.fillpix(CRGB::Black);
-        for (int i = 0; i < 5; i += 4) {
-            for (int j = 0; j < 5; j += 4) {
-                M5.dis.drawpix(i, j, CRGB::Green);
-            }
-        }
+        set_off_state();
     }
 }
 
@@ -34,9 +39,14 @@ void setup()
 
 int brightness = 0;
 int increment = 0;
+bool initial_connect = false;
 void loop()
 {
   if(bleKeyboard.isConnected()) {
+    if (!initial_connect) {
+      initial_connect = true;
+      set_off_state();
+    }
     if (M5.Btn.wasPressed()) {
       bleKeyboard.press(KEY_SCROLL_LOCK);
       delay(50);
