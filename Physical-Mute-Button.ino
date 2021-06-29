@@ -5,37 +5,35 @@ BleKeyboard bleKeyboard("Zoom Mute Button", "Fufu Fang", 100);;
 
 void set_off_state()
 {
-    M5.dis.setBrightness(100);
-    M5.dis.fillpix(CRGB::Black);
-    for (int i = 0; i < 5; i += 2) {
-        for (int j = 0; j < 5; j += 4) {
-            M5.dis.drawpix(i, j, CRGB::Green);
-            M5.dis.drawpix(j, i, CRGB::Green);
-        }
-    }
+  M5.dis.setBrightness(100);
+  M5.dis.fillpix(CRGB::Black);
+  for (int i = 0; i < 5; i += 4) {
+    M5.dis.drawpix(i, 2, CRGB::Green);
+    M5.dis.drawpix(2, i, CRGB::Green);
+  }
 }
 
 void KbdLedCb(KbdLeds *kbls)
 {
-    if (kbls->bmScrollLock) {
-        M5.dis.setBrightness(100);
-        M5.dis.fillpix(CRGB::Green);
-    } else {
-        set_off_state();
-    }
+  if (kbls->bmScrollLock) {
+    M5.dis.setBrightness(100);
+    M5.dis.fillpix(CRGB::Green);
+  } else {
+    set_off_state();
+  }
 }
 
 void setup()
 {
-    M5.begin(false, false, true);
-    delay(10);
-    M5.dis.setBrightness(20);
-    M5.dis.fillpix(CRGB::Black);
+  M5.begin(false, false, true);
+  delay(10);
+  M5.dis.setBrightness(20);
+  M5.dis.fillpix(CRGB::Black);
 
-    bleKeyboard.begin();
-    /* must have delay for the BLE  finish initalisation */
-    delay(1000);
-    bleKeyboard.setLedChangeCallBack(KbdLedCb);
+  bleKeyboard.begin();
+  /* must have delay for the BLE  finish initalisation */
+  delay(1000);
+  bleKeyboard.setLedChangeCallBack(KbdLedCb);
 }
 
 int brightness = 0;
