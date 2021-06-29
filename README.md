@@ -1,5 +1,6 @@
 # Physical-Zoom-Mute-Button
-
+This version basically configures the Atom Matrix into a scroll lock
+indicator. It requires this: https://github.com/Cemu0/ESP32-BLE-Keyboard
 ## License
 The soure code of this file are released under GPLv3.
 
