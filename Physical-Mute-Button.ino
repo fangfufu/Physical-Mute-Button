@@ -61,6 +61,7 @@ void loop()
     }
     brightness += increment;
     M5.dis.setBrightness(brightness);
+    initial_connect = false;
   }
   // Don't ask me why these have to be in the loop, they just do.
   M5.update();
