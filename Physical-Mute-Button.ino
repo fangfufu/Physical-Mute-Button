@@ -7,9 +7,10 @@ void set_off_state()
 {
     M5.dis.setBrightness(100);
     M5.dis.fillpix(CRGB::Black);
-    for (int i = 0; i < 5; i += 4) {
+    for (int i = 0; i < 5; i += 2) {
         for (int j = 0; j < 5; j += 4) {
             M5.dis.drawpix(i, j, CRGB::Green);
+            M5.dis.drawpix(j, i, CRGB::Green);
         }
     }
 }
